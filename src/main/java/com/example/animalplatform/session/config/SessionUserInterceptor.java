@@ -22,7 +22,7 @@ public class SessionUserInterceptor implements HandlerInterceptor {
     private final ObjectMappingUtil objectMappingUtil;
 
     //TODO : Override시 에러가 발생하여 주석처리
-//    @Override
+    @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws Exception {
