@@ -21,7 +21,6 @@ public class SessionUserInterceptor implements HandlerInterceptor {
     private static final int LOGIN_ERROR_STATUS = 444;
     private final ObjectMappingUtil objectMappingUtil;
 
-    //TODO : Override시 에러가 발생하여 주석처리
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,

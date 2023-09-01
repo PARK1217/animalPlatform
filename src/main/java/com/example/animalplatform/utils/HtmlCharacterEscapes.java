@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.io.CharacterEscapes;
 import com.fasterxml.jackson.core.io.SerializedString;
 import org.apache.commons.text.StringEscapeUtils;
 
+
 public class HtmlCharacterEscapes extends CharacterEscapes {
 
     private final int[] asciiEscapes;
