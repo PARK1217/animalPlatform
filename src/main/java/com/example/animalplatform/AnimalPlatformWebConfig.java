@@ -31,27 +31,27 @@ public class AnimalPlatformWebConfig implements WebMvcConfigurer {
 //            "/api/v1/ums/sendPush",
     };
 
-    private static final String[] SESSION_API_PATH = {
-            // 로그인 session이 필요한 API Path
-//            "/api/v1/family/**",
-
-    };
+//    private static final String[] SESSION_API_PATH = {
+//            // 로그인 session이 필요한 API Path
+////            "/api/v1/family/**",
+//
+//    };
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(new SessionUserCheckResolver());
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        // 인증 토큰 절차가 필요한 외부 제공 API Path를 기입
-//        registry.addInterceptor(new ExternalApiRequestInterceptor(encryption, objectMappingUtil))
-//                .addPathPatterns(EXTERNAL_API_PATH);
-        // 로그인이 필요한 REST API 의 Path를 기입하여 로그인을 체크
-        registry.addInterceptor(new SessionUserInterceptor(objectMappingUtil))
-                // NOTE : 경로추가를 하지 않을 경우 전체 경로에 적용된다
-                .addPathPatterns(SESSION_API_PATH);
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        // 인증 토큰 절차가 필요한 외부 제공 API Path를 기입
+////        registry.addInterceptor(new ExternalApiRequestInterceptor(encryption, objectMappingUtil))
+////                .addPathPatterns(EXTERNAL_API_PATH);
+//        // 로그인이 필요한 REST API 의 Path를 기입하여 로그인을 체크
+//        registry.addInterceptor(new SessionUserInterceptor(objectMappingUtil))
+//                // NOTE : 경로추가를 하지 않을 경우 전체 경로에 적용된다
+//                .addPathPatterns(SESSION_API_PATH);
+//    }
 
     // XSS Filter
 //    @Bean
