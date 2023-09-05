@@ -23,6 +23,7 @@ import java.util.List;
 public class AnimalPlatformWebConfig implements WebMvcConfigurer {
 
     //외부와 데이터 통신시 암호화를 위한 객체
+    //유틸 클래스를 만들어서 사용해야함
 //    private final Encryption encryption;
     private final ObjectMappingUtil objectMappingUtil;
 
