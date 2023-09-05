@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <property name="rootpath" value="${user.home}/logs" />
+    <property name="basename" value="animalPlatform" />
+    <property name="zipType" value="gz" />
+    <property name="limitFileSize" value="5MB" />
+    <property name="maxHistoryDays" value="185" />
+
+    <!-- Appenders -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5p: %d{[yyyy-MM-dd HH:mm:ss]} %c - %m%n</pattern>
+            <!--             <charset>UTF-8</charset> -->
+        </encoder>
+    </appender>
+
+    <!-- Mablelotus log Start -->
+    <appender name="DEBUG_APPENDER"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${rootpath}/${basename}-debug.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${rootpath}/${basename}-debug.%d{yyyy-MM-dd}.%i.log.${zipType}
+            </FileNamePattern>
+            <maxHistory>${maxHistoryDays}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${limitFileSize}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%5p %d{[yyyy-MM-dd HH:mm:ss]} - %m%n</pattern>
+            <!--             <charset>UTF-8</charset> -->
+        </encoder>
+    </appender>
+
+    <appender name="INFO_APPENDER"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${rootpath}/${basename}-info.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${rootpath}/${basename}-info.%d{yyyy-MM-dd}.%i.log.${zipType}
+            </FileNamePattern>
+            <maxHistory>${maxHistoryDays}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${limitFileSize}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%5p %d{[yyyy-MM-dd HH:mm:ss]} - %m%n</pattern>
+            <!--             <charset>UTF-8</charset> -->
+        </encoder>
+    </appender>
+
+    <appender name="WARN_APPENDER"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${rootpath}/${basename}-warn.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${rootpath}/${basename}-warn.%d{yyyy-MM-dd}.%i.log.${zipType}
+            </FileNamePattern>
+            <maxHistory>${maxHistoryDays}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${limitFileSize}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%5p %d{[yyyy-MM-dd HH:mm:ss]} - %m%n</pattern>
+            <!--             <charset>UTF-8</charset> -->
+        </encoder>
+    </appender>
+
+    <appender name="ERROR_APPENDER"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${rootpath}/${basename}-error.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${rootpath}/${basename}-error.%d{yyyy-MM-dd}.%i.log.${zipType}
+            </FileNamePattern>
+            <maxHistory>${maxHistoryDays}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${limitFileSize}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%5p %d{[yyyy-MM-dd HH:mm:ss]} - %m%n</pattern>
+            <!--             <charset>UTF-8</charset> -->
+        </encoder>
+    </appender>
+
+    <appender name="WEB"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${rootpath}/${basename}-web.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${rootpath}/${basename}-web.%d{yyyy-MM-dd}.%i.log.${zipType}
+            </FileNamePattern>
+            <maxHistory>${maxHistoryDays}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${limitFileSize}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%5p %d{[yyyy-MM-dd HH:mm:ss]} - %m%n</pattern>
+            <!--             <charset>UTF-8</charset> -->
+        </encoder>
+    </appender>
+
+    <appender name="WEB_SESSION"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${rootpath}/${basename}-web_session.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${rootpath}/${basename}-web_session.%d{yyyy-MM-dd}.%i.log.${zipType}
+            </FileNamePattern>
+            <maxHistory>${maxHistoryDays}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${limitFileSize}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%5p %d{[yyyy-MM-dd HH:mm:ss]} - %m%n</pattern>
+            <!--             <charset>UTF-8</charset> -->
+        </encoder>
+    </appender>
+
+    <logger name="debug_log" level="debug">
+        <appender-ref ref="DEBUG_APPENDER" />
+    </logger>
+
+    <logger name="info_log" level="info">
+        <appender-ref ref="INFO_APPENDER" />
+    </logger>
+
+    <logger name="warn_log" level="warn">
+        <appender-ref ref="WARN_APPENDER" />
+    </logger>
+
+    <logger name="error_log" level="error">
+        <appender-ref ref="ERROR_APPENDER" />
+    </logger>
+
+    <logger name="web_log" level="info">
+        <appender-ref ref="WEB" />
+    </logger>
+
+    <logger name="web_session_log" level="debug">
+        <appender-ref ref="WEB_SESSION" />
+    </logger>
+    <!-- Mablelotus log End -->
+
+    <!-- DB logger Start -->
+    <!-- 관련 정보 http://magefister.egloos.com/2053938 -->
+    <logger name="java.sql.Connection">
+        <level value="debug" />
+    </logger>
+
+    <logger name="java.sql.PreparedStatement">
+        <level value="debug" />
+    </logger>
+    <!--     <logger name="java.sql" level="debug"> -->
+    <!--     </logger> -->
+
+    <!-- SQL문만을 로그로 남기며, PreparedStatement일 경우 관련된 argument 값으로 대체된 SQL문이
+        보여진다. -->
+    <!--
+    <logger name="jdbc.sqlonly" level="debug">
+    </logger> -->
+
+    <!-- SQL문과 해당 SQL을 실행시키는데 수행된 시간 정보(milliseconds)를 포함한다. -->
+    <!--
+    <logger name="jdbc.sqltiming" level="debug">
+    </logger> -->
+
+    <!-- ResultSet을 제외한 모든 JDBC 호출 정보를 로그로 남긴다. 많은 양의 로그가 생성되므로 특별히 JDBC
+        문제를 추적해야 할 필요가 있는 경우를 제외하고는 사용을 권장하지 않는다. -->
+    <!--
+    <logger name="jdbc.audit" level="debug">
+    </logger> -->
+
+    <!-- ResultSet을 포함한 모든 JDBC 호출 정보를 로그로 남기므로 매우 방대한 양의 로그가 생성된다. -->
+    <!--
+    <logger name="jdbc.resultset" level="debug">
+    </logger> -->
+
+    <logger name="com.kb.medinu.mapper" level="debug">
+        <appender-ref ref="DEBUG_APPENDER" />
+    </logger>
+    <!-- DB logger End -->
+
+    <!-- 3rdparty Loggers -->
+    <logger name="org.springframework" level="info">
+    </logger>
+
+    <!-- Root Logger -->
+    <root level="info">
+        <appender-ref ref="console" />
+    </root>
+
+</configuration>
