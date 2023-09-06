@@ -11557,3 +11557,10 @@ textarea.form-control-lg {
   width: 4rem;
   font-size: 2rem;
 }
+
+#goingTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
