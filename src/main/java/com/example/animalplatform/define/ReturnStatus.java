@@ -151,11 +151,11 @@ public enum ReturnStatus {
      * printDebugMessage()
      * 예외 메세지를 전달할 때 사용한다.
      */
-    public void printErrorMessage() {
+    public void printDebugMessage() {
         JLog.loge(String.format("%s", this.msg));
     }
 
-    public void printErrorMessage(Object... obj) {
+    public void printDebugMessage(Object... obj) {
         JLog.loge(String.format("%s : %s", this.msg, Arrays.toString(obj)));
     }
 
