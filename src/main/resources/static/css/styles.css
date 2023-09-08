@@ -1962,6 +1962,7 @@ progress {
 }
 .form-label {
   margin-bottom: 0.5rem;
+  white-space: nowrap;
 }
 
 .col-form-label {
@@ -2492,6 +2493,10 @@ textarea.form-control-lg {
 }
 .form-floating > .form-control-plaintext ~ label {
   border-width: 1px 0;
+}
+
+.form-field {
+  margin-bottom: 15px; /* 원하는 위아래 간격 값으로 수정 */
 }
 
 .input-group {
@@ -11563,4 +11568,8 @@ textarea.form-control-lg {
   bottom: 20px;
   right: 20px;
   z-index: 9999;
+}
+
+#goingTop:hover {
+  cursor: pointer;
 }
