@@ -1,5 +1,9 @@
 package com.animalplatform.platform.adopt.entity;
 
+import com.animalplatform.platform.adopt.dto.AddAdoptResponse;
+import com.animalplatform.platform.adopt.entity.converter.AdoptTypeConverter;
+import com.animalplatform.platform.adopt.entity.enums.AdoptType;
+import com.animalplatform.platform.user.entity.User;
 import jakarta.persistence.*;
 import jdk.jfr.Description;
 import lombok.*;
@@ -26,6 +30,12 @@ public class Adopt {
     @Comment("입양/분양번호")
     private Long adoptNo;
 
+    //회원번호로 참조
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_no", nullable = false)
+    @Comment("회원번호")
+    private User user;
+
     @Column(name = "adopt_title", length = 100)
     @Comment("입양/분양제목")
     private String adoptTitle;
@@ -42,9 +52,10 @@ public class Adopt {
     @Comment("입양/분양조회수")
     private String adoptHit;
 
-    @Column(name = "adopt_type", length = 100)
+    @Convert(converter = AdoptTypeConverter.class)
+    @Column(name = "adopt_type", length = 1, nullable = false)
     @Comment("입양/분양종류")
-    private String adoptType;
+    private AdoptType adoptType;
 
     @Column(name = "adopt_kind", length = 100)
     @Comment("입양/분양동물종류")
@@ -71,4 +82,20 @@ public class Adopt {
     @Column(length = 20)
     @Comment("수정일시")
     private LocalDateTime modDate;
+
+    public AddAdoptResponse toAddAdoptResponse() {
+        return AddAdoptResponse.builder()
+                .adoptNo(adoptNo)
+                .adoptTitle(adoptTitle)
+                .adoptWriter(adoptWriter)
+                .adoptContent(adoptContent)
+                .adoptType(this.adoptType.name())
+                .adoptKind(adoptKind)
+                .adoptRegion(adoptRegion)
+                .adoptFile(adoptFile)
+                .regDate(regDate)
+                .modDate(modDate)
+                .delYn(DelYn)
+                .build();
+    }
 }
