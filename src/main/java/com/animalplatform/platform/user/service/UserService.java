@@ -18,8 +18,8 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-public RsResponse regUser(RegUserRequest regUserRequest) {
-    //중복되는 아이디가 있는지 확인
+public RsResponse<Object> regUser(RegUserRequest regUserRequest) {
+    //중복되는 아이디 또는 이메일이 있는지 확인
     isExistUser(regUserRequest.getUserId(), regUserRequest.getEmail());
     User user = userRepository.findByUserId(regUserRequest.getUserId()).orElse(userRepository.save(regUserRequest.toEntity()));
 
