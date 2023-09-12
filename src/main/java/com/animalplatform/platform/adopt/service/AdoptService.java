@@ -2,6 +2,7 @@ package com.animalplatform.platform.adopt.service;
 
 import com.animalplatform.platform.adopt.dto.AddAdoptRequest;
 import com.animalplatform.platform.adopt.dto.AddAdoptResponse;
+import com.animalplatform.platform.adopt.dto.ModAdoptRequest;
 import com.animalplatform.platform.adopt.entity.Adopt;
 import com.animalplatform.platform.adopt.repository.AdoptRepository;
 import com.animalplatform.platform.define.ReturnStatus;
@@ -29,6 +30,29 @@ public class AdoptService {
         User user = findUser(addAdoptRequest);
 
         Adopt adopt = addAdoptRequest.toEntity(user);
+        //입양글 혹은 분양글 등록
+        adoptRepository.save(adopt);
+
+        AddAdoptResponse response = adopt.toAddAdoptResponse();
+
+        return new RsResponse<>(ReturnStatus.SUCCESS, null, response);
+
+    }
+
+    public RsResponse<Object> getAdopt(Long adoptNo) {
+        Adopt adopt = adoptRepository.findById(adoptNo).orElseThrow(() -> new UserException(ReturnStatus.FAIL_NOT_FOUND_SELF_USER, String.format("adoptNo : %s", adoptNo)));
+        return new RsResponse<>(ReturnStatus.SUCCESS, null, adopt.toAddAdoptResponse());
+    }
+
+    public RsResponse<Object> updateAdopt(ModAdoptRequest request) {
+
+        //사용자가 존재하는지 확인/
+
+        //수정이 필요한 게시글이 존재하는지 확인
+        Adopt adopt = findAdopt(request);
+
+
+
         adoptRepository.save(adopt);
 
         //입양글 혹은 분양글 등록
@@ -36,6 +60,10 @@ public class AdoptService {
 
         return new RsResponse<>(ReturnStatus.SUCCESS, null, response);
 
+    }
+
+    private Adopt findAdopt(ModAdoptRequest request) {
+        return adoptRepository.findById(request.getAdoptNo()).orElseThrow(() -> new UserException(ReturnStatus.FAIL_NOT_FOUND_SELF_USER, String.format("adoptNo : %s", request.getAdoptNo())));
     }
 
     private User findUser(AddAdoptRequest addAdoptRequest) {

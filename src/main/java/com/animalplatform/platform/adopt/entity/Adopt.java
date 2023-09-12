@@ -1,7 +1,9 @@
 package com.animalplatform.platform.adopt.entity;
 
 import com.animalplatform.platform.adopt.dto.AddAdoptResponse;
+import com.animalplatform.platform.adopt.entity.converter.AdoptKindConverter;
 import com.animalplatform.platform.adopt.entity.converter.AdoptTypeConverter;
+import com.animalplatform.platform.adopt.entity.enums.AdoptKind;
 import com.animalplatform.platform.adopt.entity.enums.AdoptType;
 import com.animalplatform.platform.user.entity.User;
 import jakarta.persistence.*;
@@ -30,7 +32,7 @@ public class Adopt {
     @Comment("입양/분양번호")
     private Long adoptNo;
 
-    //회원번호로 참조
+    //회원번호로 참조 (작성자이름, 작성자이메일, 작성자연락처)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_no", nullable = false)
     @Comment("회원번호")
@@ -40,26 +42,23 @@ public class Adopt {
     @Comment("입양/분양제목")
     private String adoptTitle;
 
-    @Column(name = "adopt_writer", length = 100)
-    @Comment("입양/분양작성자")
-    private String adoptWriter;
-
     @Column(name = "adopt_content", length = 100)
     @Comment("입양/분양내용")
     private String adoptContent;
 
-    @Column(name = "adopt_hit", length = 100)
+    @Column(name = "adopt_hit", columnDefinition = "int default 0", nullable = false)
     @Comment("입양/분양조회수")
-    private String adoptHit;
+    private int adoptHit;
 
     @Convert(converter = AdoptTypeConverter.class)
     @Column(name = "adopt_type", length = 1, nullable = false)
     @Comment("입양/분양종류")
     private AdoptType adoptType;
 
-    @Column(name = "adopt_kind", length = 100)
+    @Convert(converter = AdoptKindConverter.class)
+    @Column(name = "adopt_kind", length = 3, nullable = false)
     @Comment("입양/분양동물종류")
-    private String adoptKind;
+    private AdoptKind adoptKind;
 
     @Column(name = "adopt_region", length = 100)
     @Comment("입양/분양지역")
@@ -87,15 +86,14 @@ public class Adopt {
         return AddAdoptResponse.builder()
                 .adoptNo(adoptNo)
                 .adoptTitle(adoptTitle)
-                .adoptWriter(adoptWriter)
+                .adoptWriter(user.getUserName())
                 .adoptContent(adoptContent)
                 .adoptType(this.adoptType.name())
-                .adoptKind(adoptKind)
+                .adoptKind(this.adoptKind.name())
                 .adoptRegion(adoptRegion)
                 .adoptFile(adoptFile)
                 .regDate(regDate)
                 .modDate(modDate)
-                .delYn(DelYn)
                 .build();
     }
 }

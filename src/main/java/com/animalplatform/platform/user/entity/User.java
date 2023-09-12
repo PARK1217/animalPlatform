@@ -6,6 +6,7 @@ import jakarta.persistence.Table;
 import jdk.jfr.Description;
 import lombok.*;
 import org.hibernate.annotations.*;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Format;
 
 import java.time.LocalDateTime;
 
@@ -39,6 +40,7 @@ public class User {
 
     @Column(name = "email", length = 100)
     @Comment("이메일")
+    @Format(formats = "email")
     private String email;
 
     @Column(name = "phone", length = 20)

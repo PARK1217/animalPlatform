@@ -1,6 +1,7 @@
 package com.animalplatform.platform.adopt.dto;
 
 import com.animalplatform.platform.adopt.entity.Adopt;
+import com.animalplatform.platform.adopt.entity.enums.AdoptKind;
 import com.animalplatform.platform.adopt.entity.enums.AdoptType;
 import com.animalplatform.platform.user.entity.User;
 import lombok.*;
@@ -26,7 +27,7 @@ public class AddAdoptRequest {
                 .adoptTitle(this.adoptTitle)
                 .adoptType(AdoptType.filterAdoptType(adoptType))
                 .adoptContent(adoptContent)
-                .adoptKind(this.adoptKind)
+                .adoptKind(AdoptKind.filterAdoptKind(adoptKind))
                 .adoptRegion(adoptRegion)
                 .adoptFile(adoptFile)
                 .build();
