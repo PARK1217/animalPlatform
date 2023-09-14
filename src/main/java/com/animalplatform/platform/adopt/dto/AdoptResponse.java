@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class AddAdoptResponse {
+public class AdoptResponse {
     private Long adoptNo;
     private String adoptTitle;
     private String adoptWriter;

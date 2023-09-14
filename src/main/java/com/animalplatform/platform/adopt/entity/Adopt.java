@@ -1,6 +1,6 @@
 package com.animalplatform.platform.adopt.entity;
 
-import com.animalplatform.platform.adopt.dto.AddAdoptResponse;
+import com.animalplatform.platform.adopt.dto.AdoptResponse;
 import com.animalplatform.platform.adopt.entity.converter.AdoptKindConverter;
 import com.animalplatform.platform.adopt.entity.converter.AdoptTypeConverter;
 import com.animalplatform.platform.adopt.entity.enums.AdoptKind;
@@ -42,7 +42,7 @@ public class Adopt {
     @Comment("입양/분양제목")
     private String adoptTitle;
 
-    @Column(name = "adopt_content", length = 100)
+    @Column(name = "adopt_content", length = 500)
     @Comment("입양/분양내용")
     private String adoptContent;
 
@@ -68,7 +68,7 @@ public class Adopt {
     @Comment("입양/분양파일")
     private String adoptFile;
 
-    @Column(name = "del_yn", length = 100)
+    @Column(name = "del_yn", columnDefinition = "char(10) default 'N'", nullable = false)
     @Comment("입양/분양삭제여부")
     private String DelYn;
 
@@ -82,8 +82,8 @@ public class Adopt {
     @Comment("수정일시")
     private LocalDateTime modDate;
 
-    public AddAdoptResponse toAddAdoptResponse() {
-        return AddAdoptResponse.builder()
+    public AdoptResponse toAddAdoptResponse() {
+        return AdoptResponse.builder()
                 .adoptNo(adoptNo)
                 .adoptTitle(adoptTitle)
                 .adoptWriter(user.getUserName())

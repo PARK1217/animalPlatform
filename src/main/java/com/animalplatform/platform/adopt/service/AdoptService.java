@@ -1,7 +1,7 @@
 package com.animalplatform.platform.adopt.service;
 
 import com.animalplatform.platform.adopt.dto.AddAdoptRequest;
-import com.animalplatform.platform.adopt.dto.AddAdoptResponse;
+import com.animalplatform.platform.adopt.dto.AdoptResponse;
 import com.animalplatform.platform.adopt.dto.ModAdoptRequest;
 import com.animalplatform.platform.adopt.entity.Adopt;
 import com.animalplatform.platform.adopt.repository.AdoptRepository;
@@ -33,7 +33,7 @@ public class AdoptService {
         //입양글 혹은 분양글 등록
         adoptRepository.save(adopt);
 
-        AddAdoptResponse response = adopt.toAddAdoptResponse();
+        AdoptResponse response = adopt.toAddAdoptResponse();
 
         return new RsResponse<>(ReturnStatus.SUCCESS, null, response);
 
@@ -52,18 +52,17 @@ public class AdoptService {
         Adopt adopt = findAdopt(request);
 
 
-
         adoptRepository.save(adopt);
 
         //입양글 혹은 분양글 등록
-        AddAdoptResponse response = adopt.toAddAdoptResponse();
+        AdoptResponse response = adopt.toAddAdoptResponse();
 
         return new RsResponse<>(ReturnStatus.SUCCESS, null, response);
 
     }
 
     private Adopt findAdopt(ModAdoptRequest request) {
-        return adoptRepository.findById(request.getAdoptNo()).orElseThrow(() -> new UserException(ReturnStatus.FAIL_NOT_FOUND_SELF_USER, String.format("adoptNo : %s", request.getAdoptNo())));
+        return adoptRepository.findById(request.getAdoptNo()).orElseThrow(() -> new UserException(ReturnStatus.FAIL_NOT_EXISTED_DATA, String.format("adoptNo : %s", request.getAdoptNo())));
     }
 
     private User findUser(AddAdoptRequest addAdoptRequest) {
