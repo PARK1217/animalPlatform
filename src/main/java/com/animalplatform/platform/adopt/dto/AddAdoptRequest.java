@@ -30,6 +30,7 @@ public class AddAdoptRequest {
                 .adoptKind(AdoptKind.filterAdoptKind(adoptKind))
                 .adoptRegion(adoptRegion)
                 .adoptFile(adoptFile)
+                .delYn("N")
                 .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.animalplatform.platform.adopt.entity;
 
 import com.animalplatform.platform.adopt.dto.AdoptResponse;
+import com.animalplatform.platform.adopt.dto.ModAdoptRequest;
 import com.animalplatform.platform.adopt.entity.converter.AdoptKindConverter;
 import com.animalplatform.platform.adopt.entity.converter.AdoptTypeConverter;
 import com.animalplatform.platform.adopt.entity.enums.AdoptKind;
@@ -70,7 +71,7 @@ public class Adopt {
 
     @Column(name = "del_yn", columnDefinition = "char(10) default 'N'", nullable = false)
     @Comment("입양/분양삭제여부")
-    private String DelYn;
+    private String delYn;
 
     @CreationTimestamp
     @Column(nullable = false, length = 20, updatable = false)
@@ -95,5 +96,18 @@ public class Adopt {
                 .regDate(regDate)
                 .modDate(modDate)
                 .build();
+    }
+
+    public void updateAdopt(ModAdoptRequest request) {
+        this.adoptTitle = request.getAdoptTitle();
+        this.adoptContent = request.getAdoptContent();
+        this.adoptType = AdoptType.filterAdoptType(request.getAdoptType());
+        this.adoptKind = AdoptKind.filterAdoptKind(request.getAdoptKind());
+        this.adoptRegion = request.getAdoptRegion();
+        this.adoptFile = request.getAdoptFile();
+    }
+
+    public void delete(Adopt adopt) {
+        adopt.delYn = "Y";
     }
 }

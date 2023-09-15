@@ -7,13 +7,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @Builder
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor
 public class AdoptResponse {
     private Long adoptNo;
     private String adoptTitle;
     private String adoptWriter;
     private String adoptContent;
+    private int adoptHit;
     private String adoptType;
     private String adoptKind;
     private String adoptRegion;
