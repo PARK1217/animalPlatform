@@ -7,6 +7,7 @@
     <meta name="author" content=""/>
     <title>AnimalsPlatform</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet"/>
 </head>
@@ -29,10 +30,11 @@
                 <li class="nav-item"><a class="nav-link" href="#!">커뮤니티</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">마이페이지</a></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</a>
+                    <a class="nav-link" href="#" id="loginLink" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</a>
                 </li>
-                <!--로그인시에는 로그아웃으로 바뀌게
-                <li class="nav-item"><a class="nav-link" href="#!">로그아웃</a></li>-->
+                <li class="nav-item" style="display: none;">
+                    <a class="nav-link" href="#" id="logoutLink">로그아웃</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -64,9 +66,21 @@
                         <label for="email" class="form-label me-2" style="white-space: nowrap;">이메일</label>
                         <input type="text" class="form-control" id="email">
                     </div>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#findIdModal">아이디 찾기</a>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#findPasswordModal">비밀번호 재설정</a>
+                    <div class= "d-flex justify-content-between mb-3">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</a>
+                        <div>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#findIdModal">아이디 찾기</a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#findPasswordModal">비밀번호 재설정</a>
+                        </div>
+                    </div>
+
                 </form>
+                <hr>
+                <!-- 소셜 로그인 -->
+
+                <button class='btn-social-login' style='background:#D93025'><i class="xi-2x xi-google"></i></button>
+                <button class='btn-social-login' style='background:#1FC700'><i class="xi-2x xi-naver"></i></button>
+                <button class='btn-social-login' style='background:#FFEB00'><i class="xi-2x xi-kakaotalk text-dark"></i></button>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">닫기</button>

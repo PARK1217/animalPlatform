@@ -7029,7 +7029,7 @@ textarea.form-control-lg {
 }
 
 .d-flex {
-  display: flex !important;
+  display: flex;
 }
 
 .d-inline-flex {
@@ -7386,7 +7386,7 @@ textarea.form-control-lg {
 }
 
 .justify-content-between {
-  justify-content: space-between !important;
+  justify-content: space-between;
 }
 
 .justify-content-around {
@@ -8146,7 +8146,7 @@ textarea.form-control-lg {
 }
 
 .text-center {
-  text-align: center !important;
+  text-align: center;
 }
 
 .text-decoration-none {
@@ -11573,3 +11573,16 @@ textarea.form-control-lg {
 #goingTop:hover {
   cursor: pointer;
 }
+
+.btn-social-login {
+  transition: all .2s;
+  outline: 0;
+  border: 1px solid transparent;
+  padding: .5rem !important;
+  border-radius: 50%;
+  color: #fff;
+}
+.btn-social-login:focus {
+  box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+}
+.text-dark { color: #343a40!important; }
