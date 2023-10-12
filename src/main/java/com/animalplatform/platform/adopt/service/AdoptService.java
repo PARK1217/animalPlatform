@@ -43,8 +43,34 @@ public class AdoptService {
 
     }
 
+<<<<<<< HEAD
     public RsResponse<Object> getAdopt(Long adoptNo) {
         Adopt adopt = adoptRepository.findByAdoptNo(adoptNo).orElseThrow(() -> new UserException(ReturnStatus.FAIL_NOT_FOUND_SELF_USER, String.format("adoptNo : %s", adoptNo)));
+=======
+    public RsResponse<Object> getAdopt(Long adoptNo, HttpServletRequest request) {
+        Adopt adopt = adoptRepository.findByAdoptNo(adoptNo).orElseThrow(() -> new UserException(ReturnStatus.FAIL_NOT_EXISTED_DATA, String.format("adoptNo : %s", adoptNo)));
+        AdoptResponse response = adopt.toAddAdoptResponse();
+        List<AdoptCommtResponse> comments = response.getCommentList();
+
+        /* 댓글 관련 */
+//        if(comments != null && !comments.isEmpty()) {
+//            request.addAttribute("comments", comments);
+//        }
+
+        //사용자 관련
+        //로그인사용자 세션 추가해서 넘겨주기
+//        if (user != null) {
+//            model.addAttribute("user", user.getNickname());
+//
+//            /*게시글 작성자 본인인지 확인*/
+//            if (dto.getUserId().equals(user.getId())) {
+//                model.addAttribute("writer", true);
+//            }
+//        }
+
+
+
+>>>>>>> d6b3d84... 게시글 번호 PathVariable로 설정
         return new RsResponse<>(ReturnStatus.SUCCESS, null, adopt.toAddAdoptResponse());
     }
 
