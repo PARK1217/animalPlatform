@@ -5,6 +5,7 @@ import com.animalplatform.platform.adopt.dto.DelAdoptRequest;
 import com.animalplatform.platform.adopt.dto.ModAdoptRequest;
 import com.animalplatform.platform.adopt.service.AdoptService;
 import com.animalplatform.platform.define.RsResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -35,14 +36,9 @@ public class AdoptController {
     @GetMapping(value = "/get/{adoptNo}")
     public RsResponse<Object> getAdopt(
 //                                @SessionUser SessionResponse session,
-<<<<<<< HEAD
-                               @RequestParam Long adoptNo) {
-        return adoptService.getAdopt(adoptNo);
-=======
                                  @PathVariable(value="adoptNo") Long adoptNo,
                                HttpServletRequest request) {
         return adoptService.getAdopt(adoptNo, request);
->>>>>>> d6b3d84... 게시글 번호 PathVariable로 설정
 
     }
 
