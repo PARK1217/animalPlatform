@@ -71,54 +71,20 @@ public enum ReturnStatus {
     FAIL_DATE_FORMAT(4261, "날짜 형식이 잘못되었습니다."),
 
     FAIL_NOT_FOUND_SELF_USER(5101, "찾을 수 없는 사용자입니다."),
-    FAIL_NOT_REGISTER_FAMILY(5102, "등록되어 있지 않는 가족입니다."),
 
     FAIL_EXISTED_TPL_NAME(5201, "이미 등록된 템플릿 이름입니다."),
     FAIL_NOT_FIND_TPL(5202, "찾을 수 없는 템플릿입니다."),
-
-    FAIL_NOT_FOUND_HOSPITAL(6101, "찾을 수 없는 병원입니다."),
-
-    FAIL_NOT_FOUND_TREATMENT(7101, "찾을 수 없는 진료내역입니다."),
-    FAIL_EXIST_TREATMENT(7102, "이미 진료예약이 존재하는 날짜입니다."),
-    FAIL_NOT_FOUND_IN_PROGRESS_TREATMENT(7103, "대기중이거나 진행중인 진료 내역이 아닙니다."),
-    FAIL_NOT_CANCELED_STATUS_TREATMENT(7104, "취소상태의 진료내역이 아닙니다."),
-    FAIL_NOT_RESERVED_MY_TREATMENT(7105, "사용자의 진료내역이 아닙니다."),
-    FAIL_NOT_FOUND_DISEASE_CODENAME(7201, "증상명칭을 찾을 수 없는 증상코드입니다."),
-
-    FAIL_NOT_FOUND_AREA_NO(7301, "해당 지점코드를 찾을 수 없습니다."),
 
     FAIL_NOT_CONDITIONS(8101, "조건이 충족되지 않습니다."),
 
     FAIL_DISAGREE_PUSH_USER(8102, "push 수신거부 사용자입니다."),
     FAIL_NOT_SEND_PUSH(8103, "푸시 전송에 실패했습니다."),
-    FAIL_NOT_WITHDRAW_TREAT(8104,"진행 중인 대면 진료 예약이 존재합니다." ),
-
-    FAIL_NOT_WITHDRAW_ALLACARE(8105,"올라케어와 통신 중 오류가 발생했습니다." ),
-    FAIL_CONNECT_OCARE(8106, "오케어 연동에 실패했습니다."),
-
-    FAIL_NOT_FOUND_TREATMENT_LIMIT(8107, "진료/건건검진상담 예약 간 비율 설정이 되지 않았습니다."),
-    FAIL_SIGN_UP_BY_OCARE(8108, "이미 존재하는 사번을 가진 사용자입니다."),
-    FAIL_EMPTY_COMPID_USER(8109, "대상자가 아닙니다."),
-    FAIL_NOT_FOUND_CUSTOMER(8110, "계열사 정보를 찾을 수 없습니다."),
-    FAIL_NOT_REGISTER_CUSTOMER_CODE(8111, "등록되지 고객사 코드 입니다."),
-
-    FAIL_NOT_REGISTERED_HEALTH_CHECK_USER(9101, "등록되지 않았거나 관련되지 않는 건강검진 대상자입니다."),
-    FAIL_ALREADY_REGISTERED_HEALTH_CHECK_USER(9102, "이미 건강검진 예약을 한 사용자입니다."),
 
     FAIL_IS_HOLIDAY(9202, "공휴일 입니다."),
-    FAIL_IS_HOLIDAY_OR_WEEKEND(9202, "주말 또는 병원 지정 휴일입니다."),
-    FAIL_INVALID_RATIO(9203, "관리 비율이 잘못되었습니다."),
-    FAIL_EXCEED_TO_RESERVATION_TREATMENT_RATIO(9204, "진료 예약 비율이 초과되었습니다."),
-    FAIL_EXCEED_TO_RESERVATION_COUNSELING_RATIO(9205, "건강검진 상담 예약 비율이 초과되었습니다."),
-
+    FAIL_IS_HOLIDAY_OR_WEEKEND(9202, "주말 또는 휴일입니다."),
     FAIL_CALL_BIZ_CARE_API(10001, "요청에 실패했습니다. 관리자에게 문의 주세요."),
     FAIL_NOT_UNIQUE_DATA(10001, "동일한 정보가 있어 요청에 실패했습니다."),
-    FAIL_HEALTH_CHECK_RESERVATION(10002, "건강 검진 예약에 실패했습니다."),
     FAIL_MODIFY_HEALTH_CHECK_USER_INFO(10003, "사용자 정보 변경에 실패했습니다."),
-    FAIL_HEALTH_CHECK_CANCEL(10004, "건강 검진 예약취소에 실패했습니다."),
-    FAIL_HEALTH_CHECK_MODIFY(10004, "건강 검진 예약 변경에 실패했습니다."),
-    FAIL_HEALTH_CHECK_FAMILY_REMOVE(10004, "예약정보가 있거나, 관련없는 가족 구성원입니다."),
-    FAIL_IS_NOT_HEALTH_CHECK_FAMILY(10005, "본인 부담 가족 구성원이 아닙니다."),
 
     FAIL_NOT_SMS_SEND_INFO_SAVE(11001, "SMS 전송 정보 저장에 실패했습니다."),
     FAIL_ALREADY_EXISTED_SMS_INFO(11002, "이미 등록된 SMS 정보입니다."),
