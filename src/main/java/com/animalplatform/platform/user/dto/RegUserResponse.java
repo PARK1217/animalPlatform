@@ -15,6 +15,7 @@ public class RegUserResponse {
     private String userId;
     private String userPw;
     private String userName;
+    private String nickName;
     private String email;
     private String phone;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", locale = "Asia/Seoul")

@@ -1,5 +1,7 @@
 package com.animalplatform.platform.user.entity;
 
+import com.animalplatform.platform.security.dto.AuthenticationUserDetails;
+import com.animalplatform.platform.security.dto.SessionResponse;
 import com.animalplatform.platform.user.dto.RegUserResponse;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
@@ -38,6 +40,10 @@ public class User {
     @Comment("회원이름")
     private String userName;
 
+    @Column(name = "nick_name", length = 50)
+    @Comment("닉네임")
+    private String nickName;
+
     @Column(name = "email", length = 100)
     @Comment("이메일")
     @Format(formats = "email")
@@ -71,10 +77,25 @@ public class User {
                 .userNo(userNo)
                 .userId(userId)
                 .userName(userName)
+                .nickName(nickName)
                 .email(email)
                 .phone(phone)
                 .regDate(regDate)
                 .modDate(modDate)
                 .build();
+    }
+
+    public SessionResponse toSessionResponse() {
+        return SessionResponse.builder()
+                .userNo(userNo)
+                .userId(userId)
+                .userName(userName)
+                .nickName(nickName)
+                .email(email)
+                .build();
+    }
+
+    public AuthenticationUserDetails toAuthenticationUserDetails() {
+        return new AuthenticationUserDetails(this);
     }
 }

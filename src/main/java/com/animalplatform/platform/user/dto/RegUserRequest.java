@@ -21,6 +21,8 @@ public class RegUserRequest {
 
     private String userName;
 
+    private String nickName;
+
     @NotNull(message = "이메일을 입력해주세요.")
     @Pattern(regexp = "^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$", message = "이메일 형식이 올바르지 않습니다.")
     private String email;
@@ -34,6 +36,7 @@ public class RegUserRequest {
                 .userId(userId)
                 .userPw(userPw)
                 .userName(userName)
+                .nickName(nickName)
                 .email(email)
                 .phone(phone)
                 .delYn("N")
